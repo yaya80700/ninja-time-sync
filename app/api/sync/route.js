@@ -1,3 +1,4 @@
+export const maxDuration = 300;
 import {runSync} from "../../../lib/sync";
 export const dynamic="force-dynamic"; export const maxDuration=800;
 function auth(r){const s=process.env.CRON_SECRET;return !!s&&(r.headers.get("authorization")===`Bearer ${s}`||r.headers.get("x-cron-secret")===s)}
