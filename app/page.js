@@ -13,7 +13,6 @@ try {
 setLoading(true);
 setError(null);
 
-```
   const response = await fetch("/api/status", {
     cache: "no-store",
   });
@@ -32,20 +31,17 @@ setError(null);
 } finally {
   setLoading(false);
 }
-```
 
 }
 
 useEffect(() => {
 loadStatus();
 
-```
 const interval = setInterval(() => {
   loadStatus();
 }, 30000);
 
 return () => clearInterval(interval);
-```
 
 }, []);
 
@@ -79,7 +75,8 @@ alignItems: "center",
 gap: 20,
 flexWrap: "wrap",
 }}
-> <div>
+>
+<div>
 <h1
 style={{
 margin: 0,
@@ -87,9 +84,9 @@ fontSize: 34,
 fontWeight: 800,
 }}
 >
-🥷 Ninja Time — Synchronisation </h1>
+🥷 Ninja Time — Synchronisation
+</h1>
 
-```
           <p
             style={{
               marginTop: 10,
@@ -404,7 +401,6 @@ fontWeight: 800,
     </footer>
   </div>
 </main>
-```
 
 );
 }
@@ -427,9 +423,9 @@ textTransform: "uppercase",
 letterSpacing: 0.5,
 }}
 >
-{icon} {title} </div>
+{icon} {title}
+</div>
 
-```
   <div
     style={{
       marginTop: 8,
@@ -441,7 +437,6 @@ letterSpacing: 0.5,
     {value}
   </div>
 </div>
-```
 
 );
 }
