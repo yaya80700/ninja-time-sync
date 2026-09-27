@@ -70,7 +70,6 @@ maxWidth: 1000,
 margin: "0 auto",
 }}
 >
-{/* HEADER */}
 <header style={{ marginBottom: 30 }}>
 <div
 style={{
@@ -120,7 +119,6 @@ fontWeight: 800,
       </div>
     </header>
 
-    {/* ERREUR DE CONNEXION */}
     {error && (
       <section
         style={{
@@ -136,7 +134,6 @@ fontWeight: 800,
       </section>
     )}
 
-    {/* ÉTAT */}
     <section
       style={{
         background: "#151d33",
@@ -156,7 +153,9 @@ fontWeight: 800,
         }}
       >
         <div>
-          <h2 style={{ margin: 0 }}>État de la synchronisation</h2>
+          <h2 style={{ margin: 0 }}>
+            État de la synchronisation
+          </h2>
 
           <p
             style={{
@@ -205,13 +204,18 @@ fontWeight: 800,
         style={{
           marginTop: 25,
           display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
+          gridTemplateColumns:
+            "repeat(auto-fit, minmax(220px, 1fr))",
           gap: 15,
         }}
       >
         <Stat
           title="Statut"
-          value={loading ? "Chargement..." : status?.status || "Jamais exécutée"}
+          value={
+            loading
+              ? "Chargement..."
+              : status?.status || "Jamais exécutée"
+          }
           icon="⚙️"
         />
 
@@ -278,7 +282,6 @@ fontWeight: 800,
       )}
     </section>
 
-    {/* AUTOMATISATION */}
     <section
       style={{
         background: "#151d33",
@@ -288,12 +291,15 @@ fontWeight: 800,
         border: "1px solid #202b48",
       }}
     >
-      <h2 style={{ marginTop: 0 }}>🤖 Automatisation</h2>
+      <h2 style={{ marginTop: 0 }}>
+        🤖 Automatisation
+      </h2>
 
       <div
         style={{
           display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
+          gridTemplateColumns:
+            "repeat(auto-fit, minmax(220px, 1fr))",
           gap: 15,
           marginTop: 20,
         }}
@@ -305,7 +311,12 @@ fontWeight: 800,
             padding: 18,
           }}
         >
-          <div style={{ color: "#8996b2", fontSize: 13 }}>
+          <div
+            style={{
+              color: "#8996b2",
+              fontSize: 13,
+            }}
+          >
             FRÉQUENCE
           </div>
 
@@ -327,7 +338,12 @@ fontWeight: 800,
             padding: 18,
           }}
         >
-          <div style={{ color: "#8996b2", fontSize: 13 }}>
+          <div
+            style={{
+              color: "#8996b2",
+              fontSize: 13,
+            }}
+          >
             PROCHAINE EXÉCUTION
           </div>
 
@@ -349,7 +365,12 @@ fontWeight: 800,
             padding: 18,
           }}
         >
-          <div style={{ color: "#8996b2", fontSize: 13 }}>
+          <div
+            style={{
+              color: "#8996b2",
+              fontSize: 13,
+            }}
+          >
             CRON VERCEL
           </div>
 
@@ -367,8 +388,60 @@ fontWeight: 800,
       </div>
     </section>
 
-    {/* DERNIÈRE ACTUALISATION */}
     <footer
       style={{
         textAlign: "center",
+        color: "#66728c",
+        fontSize: 13,
+        marginTop: 25,
+      }}
+    >
+      {lastRefresh
+        ? `Dernière vérification de l'état : ${lastRefresh.toLocaleTimeString(
+            "fr-FR"
+          )}`
+        : "Vérification de l'état..."}
+    </footer>
+  </div>
+</main>
 ```
+
+);
+}
+
+function Stat({ title, value, icon }) {
+return (
+<div
+style={{
+background: "#0e1528",
+borderRadius: 12,
+padding: 18,
+border: "1px solid #1e2942",
+}}
+>
+<div
+style={{
+fontSize: 13,
+color: "#8996b2",
+textTransform: "uppercase",
+letterSpacing: 0.5,
+}}
+>
+{icon} {title} </div>
+
+```
+  <div
+    style={{
+      marginTop: 8,
+      fontSize: 21,
+      fontWeight: 800,
+      wordBreak: "break-word",
+    }}
+  >
+    {value}
+  </div>
+</div>
+```
+
+);
+}
